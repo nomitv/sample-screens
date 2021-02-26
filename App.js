@@ -8,7 +8,7 @@ import VideoCallScreen from './VideoCallScreen'
 
 const App = () => {
   return(
-    <ComposeEmail />
+    <InstaScreen />
   )
 }
 

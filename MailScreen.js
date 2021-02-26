@@ -206,7 +206,7 @@ const MailScreen = () => {
             keyExtractor={(item) => item.id.toString()}
             renderItem={({item}) => {
               return(
-                <View key={item.id} style={styles.gmailLikeList}>
+                <TouchableOpacity key={item.id} style={styles.gmailLikeList}>
                   <View style={styles.singleItem}>
                     <View style={styles.imgContainer}>
                       <FastImage 
@@ -262,7 +262,7 @@ const MailScreen = () => {
                     </View>
                   </View>
                   <View style={styles.horizontalLine} />
-                </View>
+                </TouchableOpacity>
               )
             }}
           />

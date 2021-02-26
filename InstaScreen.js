@@ -11,6 +11,7 @@ const InstaScreen = () => {
     return(
         <View style={styles.container}>
             <View style={styles.headingContainer}>
+                <TouchableOpacity>
                 <Image 
                     style={{
                         height: 30,
@@ -18,7 +19,9 @@ const InstaScreen = () => {
                     }}
                     source={require('./assets/logos/camera.png')}
                 />
+                </TouchableOpacity>
                 <Text style={styles.mainHeading}>Instagram</Text>
+                <TouchableOpacity>
                 <Image 
                     style={{
                         height: 30,
@@ -26,6 +29,7 @@ const InstaScreen = () => {
                     }}
                     source={require('./assets/logos/sent.png')}
                 />
+                </TouchableOpacity>
             </View>
             
             <View style={styles.subHeadingContainer}>
