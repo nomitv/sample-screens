@@ -1,5 +1,5 @@
 import React from 'react'
-import {View, TouchableOpacity, Text, StyleSheet, Image } from 'react-native'
+import {View, TouchableOpacity, Text, StyleSheet, Image, TextInput } from 'react-native'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import Feature from 'react-native-vector-icons/Feather'
@@ -18,49 +18,24 @@ const ComposeEmail = () => {
                 </View>
             </View>
 
-            <View style={styles.optionsContainer}>
-                <View style={{flexDirection:'row', justifyContent: 'space-between', alignItems: 'center'}}>
-                    <Text style={styles.headidngText}>New Gmail UI Design</Text>
-                    <Feature name="more-vertical" color="#828282" size={25}/>
-                </View>
-            </View>
-
             <View style={styles.mailDetailsContainer}>
-                <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-                    <View style={{flexDirection: 'row'}}>
-                        <View>
-                            <Text style={styles.nameText}>
-                                To
-                            </Text>
-                        </View>
-                        <View>
-                            <Text style={styles.nameText}>
-                                Elizabeth Clark
-                            </Text>
-                            <Text>
-                                to me
-                            </Text>
-                            <Text style={styles.blueText}>
-                                View details
-                            </Text>
-                        </View>
+                <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                    <Text style={styles.nameText}>
+                        To
+                    </Text>
+                    <View style={styles.confirmEmailInput}>
+                        
                     </View>
-                    <View style={{alignItems: 'flex-end'}}>
-                        <Text>Today | 6:15 PM</Text>
-                        <FontAwesome name="star-o" size={15} />
-                    </View>
-                    
                 </View>
+                <View
+                    style={{
+                        borderWidth: 0.5,
+                        borderColor:'black',
+                        width: wp('90%'),
+                        height: 2
+                    }}
+                />
             </View>
-            <View
-                style={{
-                    borderWidth: 0.5,
-                    borderColor:'black',
-                    margin:10,
-                    width: wp('80%'),
-                    height: 2
-                }}
-            />
             <View style={styles.mailContent}>
                 <Text style={styles.mailText}>
                     UI Concpet design for Google Gmail IOS App.
@@ -108,7 +83,8 @@ const styles = StyleSheet.create({
         marginTop: 15
     },
     nameText: {
-        fontSize: 18
+        fontSize: 18,
+        marginRight: 20
     },
     blueText: {
         color: '#9999cc'
@@ -130,6 +106,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderRadius: 50,
         backgroundColor: "#f14d41"
+    },
+    confirmEmailInput: {
+        height: hp('3%'),
+        backgroundColor: 'red',
+        margin:10,
+        borderRadius: 20
     }
 })
 
