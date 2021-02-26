@@ -24,7 +24,32 @@ const ComposeEmail = () => {
                         To
                     </Text>
                     <View style={styles.confirmEmailInput}>
-                        
+                        <FastImage 
+                            style={{
+                                height: 20,
+                                width: 20,
+                                borderRadius: 100,
+                                marginRight: 10
+                            }}
+                            source={{
+                                uri:'https://www.fairtravel4u.org/wp-content/uploads/2018/06/sample-profile-pic.png'
+                            }}
+                        />
+                        <Text style={styles.emailText}>Amalia Ventura</Text>
+                    </View>
+                    <View style={styles.confirmEmailInput}>
+                        <FastImage 
+                            style={{
+                                height: 20,
+                                width: 20,
+                                borderRadius: 100,
+                                marginRight: 10
+                            }}
+                            source={{
+                                uri:'https://www.fairtravel4u.org/wp-content/uploads/2018/06/sample-profile-pic.png'
+                            }}
+                        />
+                        <Text style={styles.emailText}>Kushanti Hasinika</Text>
                     </View>
                 </View>
                 <View
@@ -36,19 +61,35 @@ const ComposeEmail = () => {
                     }}
                 />
             </View>
-            <View style={styles.mailContent}>
-                <Text style={styles.mailText}>
-                    UI Concpet design for Google Gmail IOS App.
-                    I tried to design the UI as simple as possible which
-                    makes the functionality easier to it's users.
-                    I hope you like the concept.
-                </Text>
-
-                <View style={{flexDirection: 'row', justifyContent: 'center', marginTop: '95%'}}>
-                    <TouchableOpacity style={styles.bottomBlueButton}>
-                        <FontAwesome name="send-o" size={30} color="white" />
-                    </TouchableOpacity>
+            <View style={styles.mailDetailsContainer}>
+                <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                    <Text style={styles.nameText}>
+                        CC
+                    </Text>
                 </View>
+                <View
+                    style={{
+                        borderWidth: 0.5,
+                        borderColor:'black',
+                        width: wp('90%'),
+                        height: 2
+                    }}
+                />
+            </View>
+            <View style={styles.mailDetailsContainer}>
+                <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                    <Text style={styles.nameText}>
+                        BCC
+                    </Text>
+                </View>
+                <View
+                    style={{
+                        borderWidth: 0.5,
+                        borderColor:'black',
+                        width: wp('90%'),
+                        height: 2
+                    }}
+                />
             </View>
         </View>
     )   
@@ -109,9 +150,16 @@ const styles = StyleSheet.create({
     },
     confirmEmailInput: {
         height: hp('3%'),
-        backgroundColor: 'red',
+        width: wp('35%'),
+        backgroundColor: '#D3D3D3',
         margin:10,
-        borderRadius: 20
+        borderRadius: 20,
+        alignItems: 'center',
+        flexDirection: 'row'
+    },
+    emailText: {
+        fontSize: 14,
+        fontWeight: '600'
     }
 })
 
