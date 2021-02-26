@@ -1,12 +1,16 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {View, TouchableOpacity, Text, StyleSheet, Image, TextInput } from 'react-native'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import Feature from 'react-native-vector-icons/Feather'
 import FastImage from 'react-native-fast-image'
 import Entypo from 'react-native-vector-icons/Entypo'
+import AntDesign from 'react-native-vector-icons/AntDesign'
+import TagInput from 'react-native-tag-input'
 
 const ComposeEmail = () => {
+    const [text, setText] = useState('')
+    const [emails, setEmails] = useState([])
     return(
         <View style={styles.container}>
             <View style={styles.topContainer}>
@@ -23,34 +27,13 @@ const ComposeEmail = () => {
                     <Text style={styles.nameText}>
                         To
                     </Text>
-                    <View style={styles.confirmEmailInput}>
-                        <FastImage 
-                            style={{
-                                height: 20,
-                                width: 20,
-                                borderRadius: 100,
-                                marginRight: 10
-                            }}
-                            source={{
-                                uri:'https://www.fairtravel4u.org/wp-content/uploads/2018/06/sample-profile-pic.png'
-                            }}
-                        />
-                        <Text style={styles.emailText}>Amalia Ventura</Text>
-                    </View>
-                    <View style={styles.confirmEmailInput}>
-                        <FastImage 
-                            style={{
-                                height: 20,
-                                width: 20,
-                                borderRadius: 100,
-                                marginRight: 10
-                            }}
-                            source={{
-                                uri:'https://www.fairtravel4u.org/wp-content/uploads/2018/06/sample-profile-pic.png'
-                            }}
-                        />
-                        <Text style={styles.emailText}>Kushanti Hasinika</Text>
-                    </View>
+                    <TagInput
+                        value={emails}
+                        onChange={(emails) => setEmails(emails)}
+                        labelExtractor={(email) => email}
+                        text={text}
+                        onChangeText={(text) => setText(text)}
+                    />
                 </View>
                 <View
                     style={{
@@ -63,9 +46,15 @@ const ComposeEmail = () => {
             </View>
             <View style={styles.mailDetailsContainer}>
                 <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                    <Text style={styles.nameText}>
-                        CC
-                    </Text>
+                    <View style={{flexDirection:'row', justifyContent: 'space-between', flex: 1}}>
+                        <Text style={styles.nameText}>
+                            CC
+                        </Text>
+                        <TouchableOpacity>
+                            <AntDesign name="up" size={20}/>
+                        </TouchableOpacity>
+                    </View>
+                    <TextInput />
                 </View>
                 <View
                     style={{
@@ -81,6 +70,7 @@ const ComposeEmail = () => {
                     <Text style={styles.nameText}>
                         BCC
                     </Text>
+                    <TextInput />
                 </View>
                 <View
                     style={{
@@ -90,6 +80,38 @@ const ComposeEmail = () => {
                         height: 2
                     }}
                 />
+            </View>
+
+            <View style={styles.mailDetailsContainer}>
+                <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                    <Text style={styles.nameText}>
+                        UI Design Ideas
+                    </Text>
+                    <TextInput />
+                </View>
+                <View
+                    style={{
+                        borderWidth: 0.5,
+                        borderColor:'black',
+                        width: wp('90%'),
+                        height: 2
+                    }}
+                />
+            </View>
+
+            <View style={styles.mailContent}>
+                <Text style={styles.mailText}>
+                    You can see the designs form the ui
+                    challenge below, we extended it with the
+                    components we found, updating daily, see 
+                    stats for frequency.
+                </Text>
+            </View>
+            
+            <View style={{flexDirection: 'row', justifyContent: 'center', marginTop: '82%'}}>
+                <TouchableOpacity style={styles.bottomBlueButton}>
+                    <FontAwesome name="send-o" size={30} color="white" />
+                </TouchableOpacity>
             </View>
         </View>
     )   
