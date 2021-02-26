@@ -6,8 +6,12 @@ import AntDesign from 'react-native-vector-icons/AntDesign'
 import TagInput from 'react-native-tag-input'
 
 const ComposeEmail = () => {
-    const [text, setText] = useState('')
+    const [text, setText] = useState('UI Design Ideas')
     const [emails, setEmails] = useState([])
+    const handleChange = (emails) => {
+        console.log("emails", emails)
+        setText(emails)
+    }
     return(
         <View style={styles.container}>
             <View style={styles.topContainer}>
@@ -24,12 +28,9 @@ const ComposeEmail = () => {
                     <Text style={styles.nameText}>
                         To
                     </Text>
-                    <TagInput
+                    <TextInput
                         value={emails}
-                        onChange={(emails) => setEmails(emails)}
-                        labelExtractor={(email) => email}
-                        text={text}
-                        onChangeText={(text) => setText(text)}
+                        onChangeText={(text) => handleChange(text)}
                     />
                 </View>
                 <View
@@ -43,11 +44,12 @@ const ComposeEmail = () => {
             </View>
             <View style={styles.mailDetailsContainer}>
                 <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                    <View style={{flexDirection:'row', justifyContent: 'space-between', flex: 1}}>
-                        <Text style={styles.nameText}>
-                            CC
-                        </Text>
-                        <TouchableOpacity>
+                    <Text style={styles.nameText}>
+                        CC
+                    </Text>
+                    <View style={{flexDirection:'row', justifyContent: 'space-between', flex: 1}}>    
+                        <TextInput />
+                        <TouchableOpacity style={{marginTop: 20}}>
                             <AntDesign name="up" size={20}/>
                         </TouchableOpacity>
                     </View>
@@ -81,10 +83,7 @@ const ComposeEmail = () => {
 
             <View style={styles.mailDetailsContainer}>
                 <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                    <Text style={styles.nameText}>
-                        UI Design Ideas
-                    </Text>
-                    <TextInput />
+                    <TextInput style={{fontSize: 18}} value={text} onChangeText={e => setText(e)} />
                 </View>
                 <View
                     style={{
