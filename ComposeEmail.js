@@ -2,9 +2,6 @@ import React, {useState} from 'react'
 import {View, TouchableOpacity, Text, StyleSheet, Image, TextInput } from 'react-native'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
-import Feature from 'react-native-vector-icons/Feather'
-import FastImage from 'react-native-fast-image'
-import Entypo from 'react-native-vector-icons/Entypo'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import TagInput from 'react-native-tag-input'
 
