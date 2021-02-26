@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import com.dylanvann.fastimage.FastImageViewPackage;
 // react-native-linear-gradient
 import com.BV.LinearGradient.LinearGradientPackage;
+// react-native-svg
+import com.horcrux.svg.SvgPackage;
 // react-native-vector-icons
 import com.oblador.vectoricons.VectorIconsPackage;
 
@@ -64,6 +66,7 @@ public class PackageList {
       new MainReactPackage(mConfig),
       new FastImageViewPackage(),
       new LinearGradientPackage(),
+      new SvgPackage(),
       new VectorIconsPackage()
     ));
   }

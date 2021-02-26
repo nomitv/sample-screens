@@ -4,11 +4,13 @@ import ModelScreen from './ModelScreen'
 import MailScreen from './MailScreen'
 import InboxScreen from './InboxScreen'
 import ComposeEmail from './ComposeEmail'
+import ToDO1 from './ToDO1'
+import ToDO2 from './ToDO1'
 import VideoCallScreen from './VideoCallScreen'
 
 const App = () => {
   return(
-    <InstaScreen />
+    <ToDO1 />
   )
 }
 
