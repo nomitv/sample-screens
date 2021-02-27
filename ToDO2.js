@@ -13,6 +13,7 @@ import {
 } from "react-native";
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { AnimatedCircularProgress } from "react-native-circular-progress";
+import FontAwesome from 'react-native-vector-icons/FontAwesome5'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 export default function Home() {
 	const windowWidth = Dimensions.get("window").width;
@@ -77,14 +78,12 @@ export default function Home() {
 					<View
 						style={{ flexDirection: "row", justifyContent: "space-between" }}
 					>
-						<Image
-							source={require("./assets/1.png")}
-							style={{
-								height: 10,
+						<FontAwesome style={{
+								height: 15,
 								width: 20,
 								marginTop: 40,
-							}}
-						/>
+								marginLeft: 10
+							}} name="less-than" size={15} />
 					</View>
 					<View
 						style={{
