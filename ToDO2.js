@@ -47,14 +47,12 @@ export default function Home() {
 	  };
 	
 	  const showDatepicker = () => {
-		  console.log('sad')
 		showMode('date');
 	  };
 	
 	  const showTimepicker = () => {
 		showMode('time');
 	  };
-	  console.log(date)
 	return (
 		<ScrollView
 			showsVerticalScrollIndicator={false}
