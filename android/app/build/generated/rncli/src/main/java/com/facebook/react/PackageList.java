@@ -11,6 +11,8 @@ import com.facebook.react.shell.MainReactPackage;
 import java.util.Arrays;
 import java.util.ArrayList;
 
+// @react-native-community/datetimepicker
+import com.reactcommunity.rndatetimepicker.RNDateTimePickerPackage;
 // react-native-fast-image
 import com.dylanvann.fastimage.FastImageViewPackage;
 // react-native-linear-gradient
@@ -64,6 +66,7 @@ public class PackageList {
   public ArrayList<ReactPackage> getPackages() {
     return new ArrayList<>(Arrays.<ReactPackage>asList(
       new MainReactPackage(mConfig),
+      new RNDateTimePickerPackage(),
       new FastImageViewPackage(),
       new LinearGradientPackage(),
       new SvgPackage(),

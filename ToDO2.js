@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
 	View,
 	Text,
@@ -7,11 +7,54 @@ import {
 	ScrollView,
 	TouchableOpacity,
 	Icon,
+	TextInput,
+	TouchableWithoutFeedback,
+	Keyboard
 } from "react-native";
+import DateTimePicker from '@react-native-community/datetimepicker';
 import { AnimatedCircularProgress } from "react-native-circular-progress";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 export default function Home() {
 	const windowWidth = Dimensions.get("window").width;
 	const windowHeight = Dimensions.get("window").height;
+	const [date, setDate] = useState(new Date());
+  	const [mode, setMode] = useState('date');
+	const [show, setShow] = useState(false);
+	const [dateStart, setDateStart] = useState(new Date());
+  	const [modeStart, setModeStart] = useState('date');
+	const [showStart, setShowStart] = useState(false);
+	const [dateEnd, setDateEnd] = useState(new Date());
+  	const [modeEnd, setModeEnd] = useState('date');
+	const [showEnd, setShowEnd] = useState(false);
+	  const onChange = (selectedDate, event) => {
+		const currentDate = new Date(selectedDate.nativeEvent.timestamp) || date;
+		setShow(Platform.OS === 'ios');
+		setDate(currentDate);
+	  };
+	  const onChangeStart = (selectedDate, event) => {
+		const currentDate = new Date(selectedDate.nativeEvent.timestamp) || dateStart;
+		setShowStart(Platform.OS === 'ios');
+		setDateStart(currentDate);
+	  };
+	  const onChangeEnd = (selectedDate, event) => {
+		const currentDate = new Date(selectedDate.nativeEvent.timestamp) || dateEnd;
+		setShowEnd(Platform.OS === 'ios');
+		setDateEnd(currentDate);
+	  };
+	  const showMode = (currentMode) => {
+		setShow(true);
+		setMode(currentMode);
+	  };
+	
+	  const showDatepicker = () => {
+		  console.log('sad')
+		showMode('date');
+	  };
+	
+	  const showTimepicker = () => {
+		showMode('time');
+	  };
+	  console.log(date)
 	return (
 		<ScrollView
 			showsVerticalScrollIndicator={false}
@@ -26,7 +69,7 @@ export default function Home() {
 				<View
 					style={{
 						backgroundColor: "#f9be7c",
-						height: windowHeight / 3.5,
+						height: windowHeight / 2.5,
 						width: windowWidth,
 						borderBottomLeftRadius: 60,
 						borderBottomRightRadius: 60,
@@ -49,16 +92,11 @@ export default function Home() {
 						style={{
 							flexDirection: "row",
 							alignItems: "center",
-							marginTop: windowHeight / 16,
+							marginTop: windowHeight / 20,
 							width: "100%",
+							marginLeft:10
 						}}
 					>
-						<View style={{ width: "36%" }}>
-							{/* <Image
-								source={require("./assets/g.png")}
-								style={{ height: 100, width: 100 }}
-							/> */}
-						</View>
 						<View style={{ width: "64%" }}>
 							<Text
 								style={{
@@ -67,7 +105,7 @@ export default function Home() {
 									fontWeight: "bold",
 								}}
 							>
-								Philip Mccoy
+								Create a new task
 							</Text>
 							<Text
 								style={{
@@ -76,13 +114,98 @@ export default function Home() {
 									fontWeight: "bold",
 								}}
 							>
-								Project Manager
+								Title
 							</Text>
+							<TextInput style={{borderBottomWidth:2, marginTop:-5, width:wp('85%'), fontSize: 20}} />
+							<Text
+								style={{
+									fontSize: 20,
+									color: "#a88657",
+									fontWeight: "bold",
+									marginTop:10
+								}}
+							>
+								Date
+							</Text>
+							<View style={{flexDirection: "row"}}>
+							{show && (
+								<DateTimePicker
+									testID="dateTimePicker"
+									value={date}
+									mode={mode}
+									is24Hour={true}
+									display="default"
+									onChange={onChange}
+								/>
+							)}
+							<TouchableOpacity 
+								onPress={()=>showDatepicker()} 
+								style={{borderBottomWidth:2,width:wp('60%'), marginTop: 15}}
+							>
+								<Text style={{fontSize: 20}}>{date.toString().slice(0,15)}</Text>
+							</TouchableOpacity>
+							<Image
+								source={require("./assets/cal.jpg")}
+								style={{
+									borderRadius: 50,
+									height: 60,
+									width: 60,
+									marginLeft: 40
+								}}
+							/>
+							</View>
 						</View>
 					</View>
 				</View>
-				<View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-					<Text
+				
+				<View style={{ flexDirection: "row", justifyContent: "space-between",marginTop:20 }}>
+					{showStart && (
+						<DateTimePicker
+							testID="dateTimePicker"
+							value={dateStart}
+							mode={modeStart}
+							is24Hour={true}
+							display="default"
+							onChange={onChangeStart}
+						/>
+					)}
+					<TouchableOpacity 
+						onPress={()=>showDatepicker()} 
+						style={{borderBottomWidth:2,width:wp('30%'), marginTop: 15,marginLeft: 20, marginTop: 10}}
+					>
+						<Text style={{fontSize: 15,
+									color: "grey",
+									fontWeight: "bold",
+									marginTop:10}}
+						>
+							Start Time
+						</Text>
+						<Text style={{fontSize: 15}}>{date.toString().slice(0,15)}</Text>
+					</TouchableOpacity>
+					{showEnd && (
+						<DateTimePicker
+							testID="dateTimePicker"
+							value={dateEnd}
+							mode={modeEnd}
+							is24Hour={true}
+							display="default"
+							onChange={onChangeEnd}
+						/>
+					)}
+					<TouchableOpacity 
+						onPress={()=>showDatepicker()} 
+						style={{borderBottomWidth:2,width:wp('30%'), marginTop: 15,marginRight: 40, marginTop: 10}}
+					>
+						<Text style={{fontSize: 15,
+									color: "grey",
+									fontWeight: "bold",
+									marginTop:10}}
+						>
+							End Time
+						</Text>
+						<Text style={{fontSize: 15}}>{date.toString().slice(0,15)}</Text>
+					</TouchableOpacity>
+					{/* <Text
 						style={{
 							fontSize: 22,
 							color: "#6D767E",
@@ -93,335 +216,126 @@ export default function Home() {
 						}}
 					>
 						My Tasks
-					</Text>
-
-					<Image
-						source={require("./assets/cal.jpg")}
-						style={{
-							borderRadius: 50,
-							height: 60,
-							width: 60,
-							marginRight: 20,
-							marginTop: 15,
-						}}
-					/>
+					</Text> */}
 				</View>
-
-				<View style={{ flexDirection: "column" }}>
-					<View style={{ marginBottom: 20 }}>
-						<View
-							style={{
-								flex: 1,
-								flexDirection: "row",
-								flexWrap: "wrap",
-								height: "100%",
-								width: "100%",
-								alignItems: "center",
-								marginLeft: windowWidth / 15,
-							}}
-						>
-							<Image
-								source={require("./assets/unnamed.png")}
-								style={{ height: 50, width: 50, marginRight: 10 }}
-							/>
-							<View>
-								<Text style={{ fontWeight: "bold", color: "#3C4448" }}>
-									To Do
-								</Text>
-								<Text style={{ color: "#9D9B9A" }}>
-									5 Tasks Now - 1 started
-								</Text>
-							</View>
-						</View>
-					</View>
-					<View style={{ marginBottom: 20 }}>
-						<View
-							style={{
-								flex: 1,
-								flexDirection: "row",
-								flexWrap: "wrap",
-								height: "100%",
-								width: "100%",
-								alignItems: "center",
-								marginLeft: windowWidth / 15,
-							}}
-						>
-							<Image
-								source={require("./assets/unnamed.png")}
-								style={{ height: 50, width: 50, marginRight: 10 }}
-							/>
-							<View>
-								<Text style={{ fontWeight: "bold", color: "#3C4448" }}>
-									To Do
-								</Text>
-								<Text style={{ color: "#9D9B9A" }}>
-									5 Tasks Now - 1 started
-								</Text>
-							</View>
-						</View>
-					</View>
-					<View style={{ marginBottom: 20 }}>
-						<View
-							style={{
-								flex: 1,
-								flexDirection: "row",
-								flexWrap: "wrap",
-								height: "100%",
-								width: "100%",
-								alignItems: "center",
-								marginLeft: windowWidth / 15,
-							}}
-						>
-							<Image
-								source={require("./assets/unnamed.png")}
-								style={{ height: 50, width: 50, marginRight: 10 }}
-							/>
-							<View>
-								<Text style={{ fontWeight: "bold", color: "#3C4448" }}>
-									To Do
-								</Text>
-								<Text style={{ color: "#9D9B9A" }}>
-									5 Tasks Now - 1 started
-								</Text>
-							</View>
-						</View>
-					</View>
-				</View>
-
-				<View>
+				<View style={{margin:20}}>
 					<Text
 						style={{
-							fontSize: 22,
-							color: "#6D767E",
+							fontSize:wp('4%'),
+							color: "grey",
 							fontWeight: "bold",
-							marginTop: 20,
-							marginLeft: windowWidth / 15,
-							marginBottom: 20,
 						}}
 					>
-						Active Projects
+						Description
 					</Text>
+					<TextInput 
+						style={{borderBottomWidth:2, 
+						marginTop:-5, 
+						width:wp('87%'), 
+						fontSize: 20}}
+						multiline={true} 
+						numberOfLines={3}
+					/>
 				</View>
-				<View
-					style={{
-						flex: 1,
-						flexDirection: "row",
-						flexWrap: "wrap",
-						height: "100%",
-						width: "100%",
-						alignItems: "center",
-					}}
-				>
-					<View style={{ width: "50%" }}>
-						<View
+				<View style={{margin:20}}>
+					<Text
+						style={{
+							fontSize:wp('4%'),
+							color: "grey",
+							fontWeight: "bold",
+							paddingLeft: 4
+						}}
+					>
+						Catagory
+					</Text>
+					<View style={{flexDirection: 'row', justifyContent: 'space-between',marginTop: 10}}>
+						<TouchableOpacity 
 							style={{
-								backgroundColor: "#319398",
-								height: windowHeight / 3.3,
-								width: windowWidth / 2.5,
-								borderRadius: 40,
-								marginBottom: 10,
-								alignSelf: "center",
-								flexDirection: "column",
-								justifyContent: "space-around",
-							}}
-						>
-							<AnimatedCircularProgress
-								style={{ alignSelf: "center" }}
-								size={90}
-								width={5}
-								fill={10}
-								tintColor="#fff"
-								onAnimationComplete={() => console.log("onAnimationComplete")}
-								backgroundColor="#5BB7BC"
-							>
-								{(fill) => (
-									<Text style={{ color: "#fff", fontWeight: "bold" }}>10%</Text>
-								)}
-							</AnimatedCircularProgress>
-							<View
-								style={{
-									alignSelf: "center",
+								width:wp('30%'), 
+								borderColor:"grey",
+								backgroundColor:"#E56472",
+								padding:7,
+								borderRadius:15,
+								justifyContent: 'center',
+								alignItems:'center'
 								}}
 							>
-								<Text
-									style={{
-										color: "#fff",
-										fontWeight: "bold",
-										fontSize: 20,
-									}}
-								>
-									Medical App
-								</Text>
-								<Text
-									style={{
-										color: "#5BB7BC",
-										fontSize: 15,
-										alignSelf: "center",
-									}}
-								>
-									9 hours of progress
-								</Text>
-							</View>
-						</View>
-					</View>
-					<View style={{ width: "50%" }}>
-						<View
+							<Text style={{fontSize:wp('3%'), fontWeight: 'bold', color: 'white'}}>SPORT APP</Text>
+						</TouchableOpacity>
+						<TouchableOpacity 
 							style={{
-								backgroundColor: "#e46471",
-								height: windowHeight / 3.3,
-								width: windowWidth / 2.5,
-								borderRadius: 40,
-								marginBottom: 10,
-								alignSelf: "center",
-								flexDirection: "column",
-								justifyContent: "space-around",
-							}}
-						>
-							<AnimatedCircularProgress
-								style={{ alignSelf: "center" }}
-								size={90}
-								width={5}
-								fill={10}
-								tintColor="#fff"
-								onAnimationComplete={() => console.log("onAnimationComplete")}
-								backgroundColor="#ED808A"
-							>
-								{(fill) => (
-									<Text style={{ color: "#fff", fontWeight: "bold" }}>10%</Text>
-								)}
-							</AnimatedCircularProgress>
-							<View
-								style={{
-									alignSelf: "center",
+								width:wp('30%'), 
+								borderColor:"grey",
+								backgroundColor:"lightgrey",
+								padding:7,
+								borderRadius:15,
+								justifyContent: 'center',
+								alignItems:'center',
+								marginLeft: 5
 								}}
 							>
-								<Text
-									style={{
-										color: "#fff",
-										fontWeight: "bold",
-										fontSize: 20,
-									}}
-								>
-									Medical App
-								</Text>
-								<Text
-									style={{
-										color: "#ED808A",
-										fontSize: 15,
-										alignSelf: "center",
-									}}
-								>
-									9 hours of progress
-								</Text>
-							</View>
-						</View>
-					</View>
-					<View style={{ width: "50%" }}>
-						<View
+							<Text style={{fontSize:wp('3%'), fontWeight: 'bold', color: 'dimgrey'}}>MEDICAL APP</Text>
+						</TouchableOpacity>
+						<TouchableOpacity 
 							style={{
-								backgroundColor: "#f9be7c",
-								height: windowHeight / 3.3,
-								width: windowWidth / 2.5,
-								borderRadius: 40,
-								marginBottom: 10,
-								alignSelf: "center",
-								flexDirection: "column",
-								justifyContent: "space-around",
-							}}
-						>
-							<AnimatedCircularProgress
-								style={{ alignSelf: "center" }}
-								size={90}
-								width={5}
-								fill={10}
-								tintColor="#fff"
-								onAnimationComplete={() => console.log("onAnimationComplete")}
-								backgroundColor="#F9D9B6"
-							>
-								{(fill) => (
-									<Text style={{ color: "#fff", fontWeight: "bold" }}>10%</Text>
-								)}
-							</AnimatedCircularProgress>
-							<View
-								style={{
-									alignSelf: "center",
+								width:wp('30%'), 
+								borderColor:"grey",
+								backgroundColor:"lightgrey",
+								padding:7,
+								borderRadius:15,
+								justifyContent: 'center',
+								alignItems:'center',
+								marginLeft: 5
 								}}
 							>
-								<Text
-									style={{
-										color: "#fff",
-										fontWeight: "bold",
-										fontSize: 20,
-									}}
-								>
-									Medical App
-								</Text>
-								<Text
-									style={{
-										color: "#F9D9B6",
-										fontSize: 15,
-										alignSelf: "center",
-									}}
-								>
-									9 hours of progress
-								</Text>
-							</View>
-						</View>
+							<Text style={{fontSize:wp('3%'), fontWeight: 'bold', color: 'dimgrey'}}>RENT APP</Text>
+						</TouchableOpacity>
 					</View>
-					<View style={{ width: "50%" }}>
-						<View
+					<View style={{flexDirection: 'row', justifyContent: 'flex-start', marginTop: 10}}>
+						<TouchableOpacity 
 							style={{
-								backgroundColor: "#6589e4",
-								height: windowHeight / 3.3,
-								width: windowWidth / 2.5,
-								borderRadius: 40,
-								marginBottom: 10,
-								alignSelf: "center",
-								flexDirection: "column",
-								justifyContent: "space-around",
-							}}
-						>
-							<AnimatedCircularProgress
-								style={{ alignSelf: "center" }}
-								size={90}
-								width={5}
-								fill={10}
-								tintColor="#fff"
-								onAnimationComplete={() => console.log("onAnimationComplete")}
-								backgroundColor="#7898E9"
-							>
-								{(fill) => (
-									<Text style={{ color: "#fff", fontWeight: "bold" }}>10%</Text>
-								)}
-							</AnimatedCircularProgress>
-							<View
-								style={{
-									alignSelf: "center",
+								width:wp('30%'), 
+								borderColor:"grey",
+								backgroundColor:"lightgrey",
+								padding:7,
+								borderRadius:15,
+								justifyContent: 'center',
+								alignItems:'center'
 								}}
 							>
-								<Text
-									style={{
-										color: "#fff",
-										fontWeight: "bold",
-										fontSize: 20,
-									}}
-								>
-									Medical App
-								</Text>
-								<Text
-									style={{
-										color: "#7898E9",
-										fontSize: 15,
-										alignSelf: "center",
-									}}
-								>
-									9 hours of progress
-								</Text>
-							</View>
-						</View>
+							<Text style={{fontSize:wp('3%'), fontWeight: 'bold', color: 'dimgrey'}}>BANKING APP</Text>
+						</TouchableOpacity>
+						<TouchableOpacity 
+							style={{ 
+								borderColor:"grey",
+								backgroundColor:"lightgrey",
+								padding:7,
+								borderRadius:15,
+								justifyContent: 'center',
+								alignItems:'center',
+								marginLeft: 5
+								}}
+							>
+							<Text style={{fontSize:wp('3%'), fontWeight: 'bold', color: 'dimgrey'}}>GAMING PLATFORM APP</Text>
+						</TouchableOpacity>
 					</View>
+					<TouchableOpacity 
+						style={{ 
+							borderColor:"grey",
+							backgroundColor:"#6588E4",
+							padding:10,
+							borderRadius:20,
+							justifyContent: 'center',
+							alignItems:'center',
+							marginTop: 30
+							}}
+						>
+						<Text style={{fontSize:wp('4%'), fontWeight: 'bold', color: 'white'}}>Create task</Text>
+					</TouchableOpacity>
 				</View>
-			</View>
+
+				
+				</View>
 		</ScrollView>
 	);
 }
