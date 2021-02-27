@@ -98,7 +98,7 @@ export default function Home() {
 						<View style={{ width: "64%" }}>
 							<Text
 								style={{
-									fontSize: 30,
+									fontSize: 25,
 									color: "#1b2429",
 									fontWeight: "bold",
 								}}
@@ -107,7 +107,7 @@ export default function Home() {
 							</Text>
 							<Text
 								style={{
-									fontSize: 20,
+									fontSize:wp('4%'),
 									color: "#a88657",
 									fontWeight: "bold",
 								}}
@@ -117,7 +117,7 @@ export default function Home() {
 							<TextInput style={{borderBottomWidth:2, marginTop:-5, width:wp('85%'), fontSize: 20}} />
 							<Text
 								style={{
-									fontSize: 20,
+									fontSize:wp('4%'),
 									color: "#a88657",
 									fontWeight: "bold",
 									marginTop:10
