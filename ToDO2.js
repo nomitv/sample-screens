@@ -113,7 +113,7 @@ export default function Home() {
 							>
 								Title
 							</Text>
-							<TextInput style={{borderBottomWidth:2, marginTop:-5, width:wp('85%'), fontSize: 20}} />
+							<TextInput style={{borderBottomWidth:1, marginTop:-5, width:wp('85%'), fontSize: 20, borderColor: 'grey'}} />
 							<Text
 								style={{
 									fontSize:wp('4%'),
@@ -137,7 +137,7 @@ export default function Home() {
 							)}
 							<TouchableOpacity 
 								onPress={()=>showDatepicker()} 
-								style={{borderBottomWidth:2,width:wp('60%'), marginTop: 15}}
+								style={{borderBottomWidth:1,width:wp('60%'), marginTop: 15,borderColor: 'grey'}}
 							>
 								<Text style={{fontSize: 20}}>{date.toString().slice(0,15)}</Text>
 							</TouchableOpacity>
@@ -168,7 +168,7 @@ export default function Home() {
 					)}
 					<TouchableOpacity 
 						onPress={()=>showDatepicker()} 
-						style={{borderBottomWidth:2,width:wp('30%'), marginTop: 15,marginLeft: 20, marginTop: 10}}
+						style={{borderBottomWidth:1,width:wp('30%'), marginTop: 15,marginLeft: 20, marginTop: 10,borderColor: 'grey'}}
 					>
 						<Text style={{fontSize: 15,
 									color: "grey",
@@ -191,7 +191,7 @@ export default function Home() {
 					)}
 					<TouchableOpacity 
 						onPress={()=>showDatepicker()} 
-						style={{borderBottomWidth:2,width:wp('30%'), marginTop: 15,marginRight: 40, marginTop: 10}}
+						style={{borderBottomWidth:1,width:wp('30%'), marginTop: 15,marginRight: 40, marginTop: 10,borderColor: 'grey'}}
 					>
 						<Text style={{fontSize: 15,
 									color: "grey",
@@ -226,10 +226,11 @@ export default function Home() {
 						Description
 					</Text>
 					<TextInput 
-						style={{borderBottomWidth:2, 
+						style={{borderBottomWidth:1, 
 						marginTop:-5, 
 						width:wp('87%'), 
-						fontSize: 20}}
+						fontSize: 20,
+						borderColor: 'grey'}}
 						multiline={true} 
 						numberOfLines={3}
 					/>

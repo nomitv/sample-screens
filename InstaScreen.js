@@ -286,7 +286,7 @@ const styles = StyleSheet.create({
         color: 'blue'
     },
     bottomContainer: {
-        marginTop: 10,
+        marginTop: 80,
         flex:1,
         backgroundColor:'#e8f4f8',
         width: wp('100%'),
@@ -296,7 +296,8 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        height: 10
     }
 })
 
