@@ -15,8 +15,14 @@ import java.util.ArrayList;
 import com.reactcommunity.rndatetimepicker.RNDateTimePickerPackage;
 // react-native-fast-image
 import com.dylanvann.fastimage.FastImageViewPackage;
+// react-native-gesture-handler
+import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 // react-native-linear-gradient
 import com.BV.LinearGradient.LinearGradientPackage;
+// react-native-reanimated
+import com.swmansion.reanimated.ReanimatedPackage;
+// react-native-screens
+import com.swmansion.rnscreens.RNScreensPackage;
 // react-native-svg
 import com.horcrux.svg.SvgPackage;
 // react-native-vector-icons
@@ -68,7 +74,10 @@ public class PackageList {
       new MainReactPackage(mConfig),
       new RNDateTimePickerPackage(),
       new FastImageViewPackage(),
+      new RNGestureHandlerPackage(),
       new LinearGradientPackage(),
+      new ReanimatedPackage(),
+      new RNScreensPackage(),
       new SvgPackage(),
       new VectorIconsPackage()
     ));

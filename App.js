@@ -14,7 +14,7 @@ const App = () => {
   LogBox.ignoreLogs(['Warning: ...']);
   LogBox.ignoreAllLogs();
   return(
-    <ToDO3 />
+    <MailScreen />
   )
 }
 
