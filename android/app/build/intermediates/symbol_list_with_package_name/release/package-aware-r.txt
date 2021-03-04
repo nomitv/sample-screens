@@ -1380,6 +1380,7 @@ drawable mtrl_popupmenu_background
 drawable mtrl_popupmenu_background_dark
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
+drawable node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low

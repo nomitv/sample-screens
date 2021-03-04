@@ -4,12 +4,20 @@
         "source": "D:\\sample-screens\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\assets_unnamed.png"
     },
     {
+        "merged": "D:\\sample-screens\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png.flat",
+        "source": "D:\\sample-screens\\android\\app\\build\\generated\\res\\react\\release\\drawable-xxhdpi\\node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png"
+    },
+    {
         "merged": "D:\\sample-screens\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_assets_logos_camera.png.flat",
         "source": "D:\\sample-screens\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\assets_logos_camera.png"
     },
     {
         "merged": "D:\\sample-screens\\android\\app\\build\\intermediates\\res\\merged\\release\\raw_node_modules_reactnativevectoricons_glyphmaps_fontawesome5free_meta.json.flat",
         "source": "D:\\sample-screens\\android\\app\\build\\generated\\res\\react\\release\\raw\\node_modules_reactnativevectoricons_glyphmaps_fontawesome5free_meta.json"
+    },
+    {
+        "merged": "D:\\sample-screens\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png.flat",
+        "source": "D:\\sample-screens\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png"
     },
     {
         "merged": "D:\\sample-screens\\android\\app\\build\\intermediates\\res\\merged\\release\\mipmap-xxhdpi_ic_launcher_round.png.flat",
@@ -46,6 +54,10 @@
     {
         "merged": "D:\\sample-screens\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_assets_logos_spam.png.flat",
         "source": "D:\\sample-screens\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\assets_logos_spam.png"
+    },
+    {
+        "merged": "D:\\sample-screens\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png.flat",
+        "source": "D:\\sample-screens\\android\\app\\build\\generated\\res\\react\\release\\drawable-xxxhdpi\\node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png"
     },
     {
         "merged": "D:\\sample-screens\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_assets_logos_saved.png.flat",
@@ -144,6 +156,10 @@
         "source": "D:\\sample-screens\\android\\app\\build\\generated\\res\\react\\release\\raw\\app.json"
     },
     {
+        "merged": "D:\\sample-screens\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png.flat",
+        "source": "D:\\sample-screens\\android\\app\\build\\generated\\res\\react\\release\\drawable-xhdpi\\node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png"
+    },
+    {
         "merged": "D:\\sample-screens\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_assets_logos_phonecall.png.flat",
         "source": "D:\\sample-screens\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\assets_logos_phonecall.png"
     },
@@ -166,6 +182,10 @@
     {
         "merged": "D:\\sample-screens\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_assets_cal.jpg.flat",
         "source": "D:\\sample-screens\\android\\app\\build\\generated\\res\\react\\release\\drawable-mdpi\\assets_cal.jpg"
+    },
+    {
+        "merged": "D:\\sample-screens\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png.flat",
+        "source": "D:\\sample-screens\\android\\app\\build\\generated\\res\\react\\release\\drawable-hdpi\\node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png"
     },
     {
         "merged": "D:\\sample-screens\\android\\app\\build\\intermediates\\res\\merged\\release\\raw_node_modules_csstree_package.json.flat",
